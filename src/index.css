@@ -1,13 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e5e5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.paginationBttns {
+  min-width: 50%;
+  max-width: 100%;
+  height: 2.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: center;
+
+  padding-top: 10.3px;
+  margin-bottom: 12px;
+  margin-left: 55px;
+  font-family: "Nunito", sans-serif;
+  font-style: bold;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: #555555;
+  border: 1px solid #cccccc;
+}
+
+.paginationBttns a {
+  padding-left: 0.938rem;
+  padding-right: 0.938rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  border-radius: 100%;
+  margin-right: 9.5px;
+  margin-left: 9.5px;
+  color: #555555;
+  cursor: pointer;
+  background-color: white;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #4fd1c5;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #4fd1c5;
+}
+
+.paginationDisabled a {
+  color: #aaaaaa;
+}
+
+a.previousBttn {
+  border-radius: 100%;
+}
+
+a.nextBttn {
+  border-radius: 100%;
 }
