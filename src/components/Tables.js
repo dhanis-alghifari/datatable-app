@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { getAllPosts } from "../api";
 import ReactPaginate from "react-paginate";
 import Select from "react-dropdown-select";
+import Loader from "./Loader";
 
 const Tables = () => {
   const [data, setData] = useState([]);
@@ -35,11 +36,11 @@ const Tables = () => {
       }
     });
   }, [search, pageNumber, selectEntry]);
-  
+
   useEffect(() => {
     getPosts();
   }, [getPosts]);
-
+  
   return (
     <div
       className={
@@ -84,8 +85,10 @@ const Tables = () => {
           </tr>
         </thead>
         <tbody className="bg-white divide-y ">
+          
           {data?.map((item, index) => (
             <tr key={index} className="">
+              
               <td className="max-w-sm px-6 py-4 text-sm text-center text-gray-500">
                 {index + 1}
               </td>
@@ -107,17 +110,7 @@ const Tables = () => {
           ))}
         </tbody>
       </table>
-      {loading ? (
-        <p className="mt-5 w-full font-bold text-base text-center my-6">
-          Loading...
-        </p>
-      ) : null}
-      {data.length < 1 && !loading ? (
-        <p className="mt-5 w-full font-bold text-base text-center my-6">
-          Data not found
-        </p>
-      ) : null}
-
+      <Loader loading={loading} data={data} />
       <div
         className={`grid justify-items-center mt-10 ${
           data.length < 1 ? "hidden" : ""
@@ -139,6 +132,6 @@ const Tables = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Tables;
